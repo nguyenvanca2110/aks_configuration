@@ -35,6 +35,9 @@ kubectl get pods -o wide
 
 kubectl get nodes
 
+# List all services using in the Cluster 
+kubectl get services 
+
 =================== Azure ACR ========================
 
 # List repositories in a given Azure Container Registry.
