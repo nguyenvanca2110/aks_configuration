@@ -6,11 +6,17 @@ az login
 export RESOURCE_GROUP='lsepoc'
 export AKS_CLUSTER='lsepocaks'
 export AKS_NAMESPACE='poc-namespace'
-export ACR_LSE_POC='lscpocacr'
+export ACR_LSE_POC='lsepocacr'
 export ACR_LSE_POC_URL='lsepocacr.azurecr.io'
+
+echo $RESOURCE_GROUP
+echo $AKS_CLUSTER
+echo $AKS_NAMESPACE
+echo $ACR_LSE_POC
+echo $ACR_LSE_POC_URL
 =================== Azure AKS ========================
 
-#  Get the credentials of AKS in local to mange the Cluster 
+#  Get the credentials of AKS in local to mange the AKS Cluster 
 az aks get-credentials --resource-group=<RGNAME> --name=<AKSCLUSTERNAME>
 
 az aks get-credentials --resource-group=$RESOURCE_GROUP --name=$AKS_CLUSTER --overwrite-existing
@@ -42,8 +48,8 @@ az acr list --resource-group $RESOURCE_GROUP --output table
 # az acr repository list --name MyRegistry --resource-group myresourcegroup
 az acr repository list --name $ACR_LSE_POC --resource-group $RESOURCE_GROUP
 
-# For deploying Docer images from ACR into AKS clusters
-# We need to make an authentication between AKS and ACR 
+# For deploying Docker images from ACR into AKS clusters
+# We need to make an authentication between AKS and ACR to AKS can PULL an image from ACR
 az aks update --resource-group $RESOURCE_GROUP --name $AKS_CLUSTER --attach-acr $ACR_LSE_POC
 
 # Import the image from the registries to AKS 

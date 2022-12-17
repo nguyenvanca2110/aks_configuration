@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: lsepocnodejs-BE
+  name: lsepocnodejs-be
 spec:
   replicas: 2
   selector:
