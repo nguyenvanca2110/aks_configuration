@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: lsepoc-nodejs
-        image: lsepocnodejs.azurecr.io/lsepocnodejs:2022.12.16_05.09.54
+        image: lsepocnodejs.azurecr.io/lsepocnodejs:2022.12.18_01.52.41
         resources:
           requests:
             cpu: 100m
