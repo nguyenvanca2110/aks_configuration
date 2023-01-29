@@ -3,11 +3,10 @@
 
 az login
 
-export RESOURCE_GROUP='lsepoc'
-export AKS_CLUSTER='lsepocaks'
-export AKS_NAMESPACE='poc-namespace'
-export ACR_LSE_POC='lsepocacr'
-export ACR_LSE_POC_URL='lsepocacr.azurecr.io'
+export RESOURCE_GROUP='lse-demo'
+export AKS_CLUSTER='demo-cluster'
+export ACR_LSE_POC='lsedemoacr'
+export ACR_LSE_POC_URL='lsedemoacr.azurecr.io'
 
 echo $RESOURCE_GROUP
 echo $AKS_CLUSTER
@@ -62,10 +61,10 @@ az acr import –name canv-app –source mcr.microsoft.com/azuredocs/azure-vote-
 # login to ACR Registries for push image
 docker login <REGISTRY_NAME>.azurecr.io -u <appId> -p <password>
 
-docker login canvnodejsapp.azurecr.io -u $POC_ACR_CREDENTIALS_USR -p $POC_ACR_CREDENTIALS_PSW
+docker login $ACR_LSE_POC_URL -u $POC_ACR_CREDENTIALS_USR -p $POC_ACR_CREDENTIALS_PSW
 
 # Push image to ACR:
-docker push canvnodejsapp.azurecr.io/nodeapp_app:2022.12.12_14.58.41
+docker push $ACR_LSE_POC_URL/nodeapp_app:$BUILD_NUMBER
 
 ================================================
 # Store credential for AKS, the secret 'lsepocnodejs-secret' will be used to pull the image
