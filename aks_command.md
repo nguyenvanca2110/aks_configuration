@@ -3,10 +3,10 @@
 
 az login
 
-export RESOURCE_GROUP='lse-demo'
-export AKS_CLUSTER='demo-cluster'
-export ACR_LSE_POC='lsedemoacr'
-export ACR_LSE_POC_URL='lsedemoacr.azurecr.io'
+export RESOURCE_GROUP='gradle-demo'
+export AKS_CLUSTER='gradle-cluster'
+export ACR_LSE_POC='gradledemoacr'
+export ACR_LSE_POC_URL='gradledemoacr.azurecr.io'
 
 echo $RESOURCE_GROUP
 echo $AKS_CLUSTER
